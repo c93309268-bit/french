@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Quiz Prep</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">FRENCH <span>STUDY</span></div>
+    <button class="home-button" onclick="goHome()">Home</button>
+</header>
+
+<main class="container">
+
+    <!-- HOME PAGE -->
+    <section id="homePage" class="page active">
+        <div class="hero">
+            <p class="eyebrow">FRENCH IV • STUDY CENTER</p>
+            <h1>French Quiz Prep</h1>
+            <h2>4 Irregular Verbs</h2>
+            <p class="subtitle">
+                Practice your conjugations, build sentences, and prepare for your quiz.
+            </p>
+        </div>
+
+        <h3 class="section-heading">Verb Practice</h3>
+        <div class="verb-grid">
+            <button class="verb-card" onclick="openVerb('aller')">
+                <span class="verb-number">01</span>
+                <span class="verb-name">ALLER</span>
+                <span class="verb-meaning">To go</span>
+                <span class="card-arrow">→</span>
+            </button>
+
+            <button class="verb-card" onclick="openVerb('faire')">
+                <span class="verb-number">02</span>
+                <span class="verb-name">FAIRE</span>
+                <span class="verb-meaning">To do / make</span>
+                <span class="card-arrow">→</span>
+            </button>
+
+            <button class="verb-card" onclick="openVerb('etre')">
+                <span class="verb-number">03</span>
+                <span class="verb-name">ÊTRE</span>
+                <span class="verb-meaning">To be</span>
+                <span class="card-arrow">→</span>
+            </button>
+
+            <button class="verb-card" onclick="openVerb('avoir')">
+                <span class="verb-number">04</span>
+                <span class="verb-name">AVOIR</span>
+                <span class="verb-meaning">To have</span>
+                <span class="card-arrow">→</span>
+            </button>
+        </div>
+
+        <div class="practice-banner">
+            <div>
+                <p class="eyebrow">PUT YOUR KNOWLEDGE TO THE TEST</p>
+                <h2>Sentence Practice</h2>
+                <p>Combine subjects, prepositions, and vocabulary to create complete sentences.</p>
+            </div>
+            <button class="primary-button" onclick="openPractice()">
+                Start Practice →
+            </button>
+        </div>
+    </section>
+
+    <!-- VERB QUESTIONS -->
+    <section id="verbPage" class="page">
+        <button class="back-button" onclick="goHome()">← Back to home</button>
+
+        <div class="page-heading">
+            <p class="eyebrow">VERB CONJUGATION</p>
+            <h1 id="verbTitle">ALLER</h1>
+            <p id="verbMeaning"></p>
+        </div>
+
+        <div class="progress-area">
+            <div class="progress-label">
+                <span id="questionProgress">Question 1 of 13</span>
+                <span id="questionScore">0 correct</span>
+            </div>
+            <div class="progress-track">
+                <div id="questionProgressBar" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span id="questionType" class="tag">BASIC</span>
+            <h2>Conjugate the verb.</h2>
+            <p class="instruction">
+                Fill in the blank with the correct conjugation.
+            </p>
+
+            <div id="sentencePrompt" class="sentence-prompt"></div>
+
+            <label for="verbAnswer">Your answer</label>
+            <input id="verbAnswer" class="answer-input"
+                type="text" autocomplete="off"
+                placeholder="Type the correct conjugation...">
+
+            <div class="accent-toolbar">
+                <span>French accents:</span>
+                <div id="accentButtons"></div>
+            </div>
+
+            <div id="verbFeedback" class="feedback"></div>
+
+            <div class="question-actions">
+                <button class="primary-button" id="checkVerbButton"
+                    onclick="checkVerbAnswer()">Check Answer</button>
+                <button class="secondary-button hidden" id="nextVerbButton"
+                    onclick="nextVerbQuestion()">Next Question →</button>
+            </div>
+        </div>
+
+        <div id="verbCompletion" class="completion-card hidden">
+            <h2>Practice completed!</h2>
+            <p id="verbFinalScore"></p>
+            <button class="primary-button" onclick="retryVerb()">Try Again</button>
+            <button class="secondary-button" onclick="goHome()">Home</button>
+        </div>
+    </section>
+
+    <!-- SENTENCE PRACTICE -->
+    <section id="practicePage" class="page">
+        <button class="back-button" onclick="goHome()">← Back to home</button>
+
+        <div class="page-heading">
+            <p class="eyebrow">APPLICATION & PRACTICE</p>
+            <h1>Sentence Practice</h1>
+            <p>Use the vocabulary provided to build grammatically correct sentences.</p>
+        </div>
+
+        <div class="practice-tabs">
+            <button class="practice-tab active" onclick="showPractice('aller', this)">ALLER</button>
+            <button class="practice-tab" onclick="showPractice('faire', this)">FAIRE</button>
+            <button class="practice-tab" onclick="showPractice('etre', this)">ÊTRE</button>
+            <button class="practice-tab" onclick="showPractice('avoir', this)">AVOIR</button>
+        </div>
+
+        <div id="practiceContent"></div>
+    </section>
+
+</main>
+
+<footer>
+    <p>FRENCH STUDY CENTER · QUIZ PREPARATION</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
